@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CrudComponent } from './crud/crud/crud.component';
+import { CrudComponent } from './crud/crud.component';
+import { ActualizarComponent } from './crud/actualizar/actualizar.component';
+import { RegistrarComponent } from './crud/registrar/registrar.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrudComponent
+    CrudComponent,
+    ActualizarComponent,
+    RegistrarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

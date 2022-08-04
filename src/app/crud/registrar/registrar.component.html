@@ -1,0 +1,47 @@
+<div class="card mt-5"> <!--mt es el margin en bootrap-->
+  <div class="card-header">
+    Registrar Usuario
+  </div>
+  <div class="card-body">
+      <form class="row g-3" (ngSubmit)="registrarUsuario(forma)" #forma="ngForm">
+          <div class="col-md-6">
+            <label for="label-strNombre" class="form-label">Nombre*</label>
+            <input #inputStrNombre="ngModel" type="text" [ngClass]="{ 'is-invalid': inputStrNombre.touched && inputStrNombre.hasError('required') }" [(ngModel)]="usuario.strNombre" name="strNombre" class="form-control" id="strNombre" placeholder="Ingresar nombre" required>
+            <div class="valid-feedback"></div>
+            <div class="invalid-feedback">
+              El campo es requerido
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="label-strPrimerApellido" class="form-label">Primer Apellido*</label>
+            <div class="input-group has-validation">
+              <input #inputStrPrimerApellido="ngModel" type="text" [ngClass]="{ 'is-invalid': inputStrPrimerApellido.touched && inputStrPrimerApellido.hasError('required') }" [(ngModel)]="usuario.strPrimerApellido" name="strPrimerApellido" class="form-control" id="strPrimerApellido" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingresar primer apellido" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">
+                El campo es requerido
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="label-strSegundoApellido" class="form-label">Segundo Apellido</label>
+            <input type="text" [(ngModel)]="usuario.strSegundoApellido" name="strSegundoApellido" class="form-control" id="strSegundoApellido" aria-describedby="validationServer03Feedback" placeholder="Ingrar segundo apellido (opc)">
+            <div class="valid-feedback"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="label-nmbEdad" class="form-label">Edad*</label>
+            <input  #inputNmbEdad="ngModel" type="number" [ngClass]="{ 'is-invalid': inputNmbEdad.touched && inputNmbEdad.hasError('required') }" [(ngModel)]="usuario.nmbEdad" min="0" max="99" class="form-control" name="nmbEdad" id="nmbEdad" aria-describedby="validationServer05Feedback" placeholder="Ingresar edad" required>
+            
+            <div class="valid-feedback"></div>
+            <div id="validationServer05Feedback" class="invalid-feedback">
+              Porfavor ingrese una edad válida
+            </div>
+            
+          </div>
+
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit" [disabled]="forma.invalid">Registrar</button>
+            <button style="margin-left: 1em;" class="btn btn-danger" type="button" (click)="limpiarForma(forma)">Limpiar</button>
+          </div>
+        </form>
+  </div>
+</div>
