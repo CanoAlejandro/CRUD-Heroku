@@ -7,6 +7,8 @@ import { CrudComponent } from './crud/crud.component';
 import { ActualizarComponent } from './crud/actualizar/actualizar.component';
 import { RegistrarComponent } from './crud/registrar/registrar.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { FormsModule } from '@angular/forms';
     CrudComponent,
     ActualizarComponent,
     RegistrarComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

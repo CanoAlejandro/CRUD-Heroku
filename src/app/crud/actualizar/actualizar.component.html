@@ -1,1 +1,64 @@
-<p>actualizar works!</p>
+<div class="card mt-2"> <!--mt es el margin en bootrap-->
+    <div class="card-header text-center">
+      Actualizar
+    </div>
+    <div class="card-body">
+        <form class="row g-3" (ngSubmit)="actualizarEmpresa(forma)" #forma="ngForm">
+            <div class="col-md-6">
+              <label for="label-strNombre" class="form-label">Nombre*</label>
+              <input #inputStrNombre="ngModel" type="text" [ngClass]="{ 'is-invalid': inputStrNombre.touched && inputStrNombre.hasError('required') }" [(ngModel)]="empresa.strNombre" name="strNombre" class="form-control" id="strNombre" placeholder="Ingresa Nombre" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">
+                El campo es requerido
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-strRazonSocial" class="form-label">Razón Social*</label>
+              <div class="input-group has-validation">
+                <input #inputStrRazonSocial="ngModel" type="text" [ngClass]="{ 'is-invalid': inputStrRazonSocial.touched && inputStrRazonSocial.hasError('required') }" [(ngModel)]="empresa.strRazonSocial" name="strRazonSocial" class="form-control" id="strRazonSocial" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingrese Rasón Social" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">
+                  El campo es requerido
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-strRFC" class="form-label">RFC*</label>
+              <div class="input-group has-validation">
+                <input #inputStrRFC="ngModel" type="text" [ngClass]="{ 'is-invalid': inputStrRFC.touched && inputStrRFC.hasError('required') }" [(ngModel)]="empresa.strRFC" name="StrRFC" class="form-control" id="StrRFC" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingrese RFC" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">
+                  El campo es requerido
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-strPais" class="form-label">País</label>
+              <input type="text" [(ngModel)]="empresa.strPais" name="strPais" class="form-control" id="strPais" aria-describedby="validationServer03Feedback" placeholder="Ingrese País (opcional)">
+              <div class="valid-feedback"></div>
+            </div>
+            <div class="col-md-12">
+              <label for="label-strDireccion" class="form-label">Dirección</label>
+              <input type="text" [(ngModel)]="empresa.strDireccion" name="strDireccion" class="form-control" id="strDireccion" aria-describedby="validationServer03Feedback" placeholder="Ingrese Dirección (opcional)">
+              <div class="valid-feedback"></div>
+            </div>
+            
+            <div class="col-md-12">
+              <label for="label-strRFC" class="form-label">URL Logo*</label>
+              <div class="input-group has-validation">
+                <input #inputStrUrlLogo="ngModel" type="text" [ngClass]="{ 'is-invalid': inputStrUrlLogo.touched && inputStrUrlLogo.hasError('required') }" [(ngModel)]="empresa.strUrlLogo" name="strUrlLogo" class="form-control" id="strUrlLogo" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingrese URL Logo" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">
+                  El campo es requerido
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <!--[disabled] desactiva el boton SI forma es invalido-->
+              <button class="btn btn-primary" type="submit" [disabled]="forma.invalid">Actualizar</button>
+              <button style="margin-left: 1em;" class="btn btn-secondary" type="button" (click)="limpiarForma(forma)">Limpiar</button>
+              <button style="margin-left: 1em;" class="btn btn-danger" type="button" (click)="emitterActualizacion.emit()">Cancelar</button>
+            </div>
+          </form>
+    </div>
+  </div>
